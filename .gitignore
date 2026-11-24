@@ -1,0 +1,28 @@
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+
+# Dependencies and builds
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Test and review artifacts
+artifacts/
+playwright-report/
+test-results/
+blob-report/
+
+# Local data (development media volume and backups live outside the repo)
+/storage/
+/backups/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.log

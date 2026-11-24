@@ -1,0 +1,1087 @@
+{
+  "_rules": [
+    "One entry per acceptance criterion in docs/spec. IDs with a suffix (e.g. CMS-01.news) are scoped checkpoints of their parent.",
+    "Phase 0 fills in every empty 'verification' field with the test file and test name that prove the entry, and may add entries for missing end-to-end checks.",
+    "After Phase 0, change only the 'passes' field, and set it to true only after the verifying test passes. Never delete, renumber or reword entries.",
+    "Later phases must keep earlier entries passing; pnpm verify runs every test."
+  ],
+  "features": [
+    {
+      "id": "AUTH-01",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authentication",
+      "source": "docs/spec/04-admin-portal.md › Authentication (orig. §8.1)",
+      "description": "Anonymous requests to any /admin page except login and password reset redirect to login, and anonymous calls to any admin Server Action or admin route handler are refused by the service layer.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUTH-02",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authentication",
+      "source": "docs/spec/04-admin-portal.md › Authentication (orig. §8.1)",
+      "description": "Throttling, generic error messages and the cooldown behave as described in D10.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUTH-03",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authentication",
+      "source": "docs/spec/04-admin-portal.md › Authentication (orig. §8.1)",
+      "description": "pnpm admin:create creates the first Super Administrator and refuses when one already exists.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUTH-04",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authentication",
+      "source": "docs/spec/04-admin-portal.md › Authentication (orig. §8.1)",
+      "description": "Deactivating a user, or changing their roles, ends their sessions immediately.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUTH-05",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authentication",
+      "source": "docs/spec/04-admin-portal.md › Authentication (orig. §8.1)",
+      "description": "Users in roles flagged mfaRequired must enrol in TOTP before reaching the dashboard, and each backup code works once.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUTH-06",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authentication",
+      "source": "docs/spec/04-admin-portal.md › Authentication (orig. §8.1)",
+      "description": "Password reset works by email when SMTP is configured, and through pnpm admin:reset-password otherwise.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-01",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "In a fresh codespace built from .devcontainer/devcontainer.json (or any machine with Docker, Node.js and pnpm), pnpm dev:up produces a working site and admin.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-02",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "pnpm db:migrate applies all migrations to an empty database, and pnpm db:seed run twice leaves the database unchanged the second time.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-03",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "In production mode the app refuses to start with missing or placeholder secrets.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-04",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "Every response carries the headers in D22, and public error pages show only a correlation ID.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-05",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "pnpm verify runs every gate listed in CLAUDE.md and fails when any of them fails.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-06",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "pnpm check:integrity and pnpm check:rtl fail on planted violations of every rule in scripts/integrity-patterns.mjs and pass on the repository itself (tested).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-07",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "pnpm db:seed:demo refuses to run with NODE_ENV=production, and pnpm db:purge-demo removes every DEMO row and its media.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-09",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "The worker's jobs are idempotent and don't overlap (tested with two concurrent runs).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-10",
+      "phase": 1,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "In a codespace, sign-in and every admin form work through the forwarded port-3000 address, and a production build contains no Codespaces origins (D23).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-01",
+      "phase": 1,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "/ redirects as described in D03 and remembers an explicit language choice.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-02",
+      "phase": 1,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "/en/* renders <html lang=\"en\" dir=\"ltr\">, /ur/* renders lang=\"ur\" dir=\"rtl\", and /ar/* renders lang=\"ar\" dir=\"rtl\".",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "RBAC-01",
+      "phase": 1,
+      "priority": "P0",
+      "area": "authorization",
+      "source": "docs/spec/04-admin-portal.md › Roles and permissions (orig. §8.7)",
+      "description": "A generated test exercises every role × module × action against the services and matches this table.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-01.news",
+      "parent": "CMS-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "Scoped to news: list (search, filter, sort, paginate), create, edit, preview and archive work end to end in every language tab, with server-side validation messages shown next to the fields.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-02",
+      "phase": 2,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "Preview renders the selected language version's draft or revision exactly as the public page in that language would (direction, fonts, fallback rules), behind authentication, with a visible \"Preview\" banner and noindex.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ED-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "editor",
+      "source": "docs/spec/04-admin-portal.md › Content editor (orig. §8.4)",
+      "description": "A corpus of XSS payloads (script tags, event-handler attributes, javascript: links, malicious SVG, iframe injection), pasted or typed into the editor, never executes on preview or public pages. Covered by unit and end-to-end tests.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ED-02",
+      "phase": 2,
+      "priority": "P0",
+      "area": "editor",
+      "source": "docs/spec/04-admin-portal.md › Content editor (orig. §8.4)",
+      "description": "Urdu and Arabic tabs edit right to left, and mixed-direction text previews correctly.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ED-03",
+      "phase": 2,
+      "priority": "P0",
+      "area": "editor",
+      "source": "docs/spec/04-admin-portal.md › Content editor (orig. §8.4)",
+      "description": "Autosave never overwrites a newer save by someone else (D05).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-08",
+      "phase": 2,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "An item written only in Urdu, or only in Arabic, can be published and read in that language with no English version. Visitors in other languages see the configured fallback (D04), or a 404 under hide.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-09",
+      "phase": 2,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "For an item published in all three languages, each language's page shows only that language's version (title, body, image alt text, SEO metadata), and the language selector moves between the three versions of the same item.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "MED-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "media",
+      "source": "docs/spec/04-admin-portal.md › Media library (orig. §8.5)",
+      "description": "Disallowed types, mismatched magic bytes and oversized files are rejected with clear messages.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "MED-02",
+      "phase": 2,
+      "priority": "P0",
+      "area": "media",
+      "source": "docs/spec/04-admin-portal.md › Media library (orig. §8.5)",
+      "description": "Variants and a thumbnail are generated, and outputs contain no metadata.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NEWS-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "news",
+      "source": "docs/spec/03-public-website.md › News and announcements (orig. §6.7)",
+      "description": "Draft, submitted, in-review, approved and unpublished posts return 404 at their URL and never appear in lists, search, sitemaps or the API.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NEWS-02",
+      "phase": 2,
+      "priority": "P0",
+      "area": "news",
+      "source": "docs/spec/03-public-website.md › News and announcements (orig. §6.7)",
+      "description": "A scheduled post appears within about a minute of publishAt with no manual action. An expired post leaves lists and shows an expired notice at its URL.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NEWS-03",
+      "phase": 2,
+      "priority": "P0",
+      "area": "news",
+      "source": "docs/spec/03-public-website.md › News and announcements (orig. §6.7)",
+      "description": "Category filtering, pagination, featured posts and PDF downloads work, and images have alt text in each locale.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "SRCH-01.news",
+      "parent": "SRCH-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "search-seo",
+      "source": "docs/spec/03-public-website.md › Search and SEO (orig. §6.13)",
+      "description": "Scoped to news: search returns only published news versions in the selected language, and a draft news post containing a unique token never appears in results.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "SRCH-02",
+      "phase": 2,
+      "priority": "P0",
+      "area": "search-seo",
+      "source": "docs/spec/03-public-website.md › Search and SEO (orig. §6.13)",
+      "description": "Urdu and Arabic queries match across the letter variants listed in D09.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "TR-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "multilingual-authoring",
+      "source": "docs/spec/04-admin-portal.md › Multilingual authoring and translation management (orig. §7)",
+      "description": "When a published version is edited, the editor chooses whether the other language versions need updating (on by default when editing the original-language version, off otherwise), and flagged versions show \"Needs update\". For religious content, any change to the Arabic text or reference flags every version and hides it until it is reviewed again (D06).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "TR-03",
+      "phase": 2,
+      "priority": "P0",
+      "area": "multilingual-authoring",
+      "source": "docs/spec/04-admin-portal.md › Multilingual authoring and translation management (orig. §7)",
+      "description": "A moderator can create an item starting in English, Urdu or Arabic. Nothing requires an English version to save, submit, approve or publish (when partial publishing is allowed); the first language is recorded as originalLocale; and the item gets an ASCII slug that is editor-supplied or generated from the date and a short ID, never machine-transliterated.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "TR-04",
+      "phase": 2,
+      "priority": "P0",
+      "area": "multilingual-authoring",
+      "source": "docs/spec/04-admin-portal.md › Multilingual authoring and translation management (orig. §7)",
+      "description": "Each language version can be edited, submitted, approved, published and unpublished independently. Editing or unpublishing one version never changes what visitors see in the other languages, and a version that isn't published is never shown publicly, even when other versions of the same item are.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "TR-05",
+      "phase": 2,
+      "priority": "P0",
+      "area": "multilingual-authoring",
+      "source": "docs/spec/04-admin-portal.md › Multilingual authoring and translation management (orig. §7)",
+      "description": "Shared fields are edited once and apply to every language version; on a published item, changes to them go through a shared-field revision with the same approval rules.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "TR-06",
+      "phase": 2,
+      "priority": "P0",
+      "area": "multilingual-authoring",
+      "source": "docs/spec/04-admin-portal.md › Multilingual authoring and translation management (orig. §7)",
+      "description": "Each user can set a preferred content language; new items and the editor open in that language's tab, and any other language version can be shown alongside for reference.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "WF-01",
+      "phase": 2,
+      "priority": "P0",
+      "area": "workflow",
+      "source": "docs/spec/04-admin-portal.md › Content approval workflow (orig. §8.6)",
+      "description": "Every allowed transition works and every other transition is rejected by the service; unit tests cover the full table in D05.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "WF-02",
+      "phase": 2,
+      "priority": "P0",
+      "area": "workflow",
+      "source": "docs/spec/04-admin-portal.md › Content approval workflow (orig. §8.6)",
+      "description": "Editing a published item doesn't change the public page until the revision is published, and earlier versions can be restored.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "WF-03",
+      "phase": 2,
+      "priority": "P0",
+      "area": "workflow",
+      "source": "docs/spec/04-admin-portal.md › Content approval workflow (orig. §8.6)",
+      "description": "Requesting changes requires a comment, which the author sees on the item.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "WF-04",
+      "phase": 2,
+      "priority": "P0",
+      "area": "workflow",
+      "source": "docs/spec/04-admin-portal.md › Content approval workflow (orig. §8.6)",
+      "description": "Each transition records the actor, time and comment in WorkflowTransition and in the audit log.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ABOUT-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › About Us (orig. §6.3)",
+      "description": "On a fresh install the page shows the establishment year 1989, founder Abdul Bari Siddique, principal Abdul Wahid and the location, all from the database, and no other factual claims.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ABOUT-02",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › About Us (orig. §6.3)",
+      "description": "Vision and mission display exactly \"Islamic Education\" until an administrator changes them.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ACAD-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Academics (orig. §6.4)",
+      "description": "The academics index and course pages render from Course records, and empty optional fields don't render.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ACAD-02",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Academics (orig. §6.4)",
+      "description": "The admission-availability indicator reflects the course flag, and the enquiry form lists only courses that accept enquiries.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-01.site",
+      "parent": "CMS-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "Scoped to site configuration, navigation, footer, pages, home sections, profiles, courses, admission information, users and roles.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "HOME-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Homepage (orig. §6.2)",
+      "description": "Sections render in their configured order; disabled sections, and sections without published content, don't render.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "HOME-02",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Homepage (orig. §6.2)",
+      "description": "Statistics come from SiteConfiguration, and the student count is always labelled approximate.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "HOME-03",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Homepage (orig. §6.2)",
+      "description": "Founder and principal cards use PersonProfile records, and the message block stays hidden until a message is published.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "HOME-04",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Homepage (orig. §6.2)",
+      "description": "The Daily Hadith block follows D06 and shows the neutral placeholder on a fresh install.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "HOME-05",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Homepage (orig. §6.2)",
+      "description": "The hero visual is an original illustration or a labelled placeholder, with no legible or imitation Arabic lettering.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-03",
+      "phase": 3,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "The language selector links to the same entity in the other locale and indicates when that locale will show fallback content.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-04",
+      "phase": 3,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "Fallback content follows D04: the fallback version's lang and dir on the content block, a localized notice (none for short labels), and exclusion from that locale's sitemap and hreflang set.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-06",
+      "phase": 3,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "Phone numbers, emails and reference numbers render left to right inside Urdu and Arabic text.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-07",
+      "phase": 3,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "pnpm check:i18n finds no hard-coded user-facing strings in public components.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "LEGAL-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Legal pages",
+      "description": "Legal pages show a review date only after an administrator records a review; until then, Launch Readiness lists them.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "LR-01.v1",
+      "parent": "LR-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "launch-readiness",
+      "source": "docs/spec/04-admin-portal.md › Launch Readiness",
+      "description": "First version of /admin/launch-readiness: lists empty institutional fields, AI_DRAFT and DEMO items, missing language versions and legal pages not yet reviewed, each linking to where it can be fixed.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NAV-01",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Header, navigation and footer (orig. §6.1 and §6.2 J)",
+      "description": "Header and footer items come from NavigationItem records in their configured order. Hiding or reordering an item in the admin changes the public site after publishing, without a deploy.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NAV-02",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Header, navigation and footer (orig. §6.1 and §6.2 J)",
+      "description": "The mobile menu is operable by keyboard and screen reader: focus is trapped while open, Escape closes it, and focus returns to the toggle.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NAV-03",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Header, navigation and footer (orig. §6.1 and §6.2 J)",
+      "description": "\"Our Branches\" lists branches from the database; with one branch it shows that branch's verified details and hides empty fields.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "NAV-04",
+      "phase": 3,
+      "priority": "P0",
+      "area": "public-site",
+      "source": "docs/spec/03-public-website.md › Header, navigation and footer (orig. §6.1 and §6.2 J)",
+      "description": "The footer shows only verified contact fields and only social links that have been entered.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "RBAC-02",
+      "phase": 3,
+      "priority": "P1",
+      "area": "authorization",
+      "source": "docs/spec/04-admin-portal.md › Roles and permissions (orig. §8.7)",
+      "description": "A Super Administrator can create custom roles from the permission list, and those changes are audited.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "RBAC-03",
+      "phase": 3,
+      "priority": "P0",
+      "area": "authorization",
+      "source": "docs/spec/04-admin-portal.md › Roles and permissions (orig. §8.7)",
+      "description": "The record-level rules in D11 hold: contributors edit only their own drafts, nobody approves their own religious content, and nobody verifies their own payment-method edits.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ADM-01",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Admissions (orig. §6.5)",
+      "description": "A valid submission is stored with the consent text version and time, returns a reference number such as ADM-2026-000123, notifies staff, and shows an acknowledgement in the visitor's language.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ADM-02",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Admissions (orig. §6.5)",
+      "description": "An invalid submission shows field-level errors that assistive technology announces, and nothing is stored.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ADM-03",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Admissions (orig. §6.5)",
+      "description": "The honeypot, minimum fill time and rate limits behave as described in D16.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ADM-04",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Admissions (orig. §6.5)",
+      "description": "An enquiry never creates or implies a confirmed admission. Only the five statuses exist, and every change is audited.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "ADM-05",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Admissions (orig. §6.5)",
+      "description": "The form works in all three locales, with an RTL layout and an LTR phone field in ur and ar.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "COM-01",
+      "phase": 4,
+      "priority": "P1",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Community support (orig. §6.11)",
+      "description": "Submissions follow D16 and appear only in the admin inbox, for users with community:view.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CON-01",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Contact Us (orig. §6.12)",
+      "description": "Contact details render only when they have been entered and marked verified.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CON-02",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Contact Us (orig. §6.12)",
+      "description": "The map is a link or a click-to-load embed; no map iframe loads by default.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CON-03",
+      "phase": 4,
+      "priority": "P0",
+      "area": "forms",
+      "source": "docs/spec/03-public-website.md › Contact Us (orig. §6.12)",
+      "description": "The contact form follows D16.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "INBOX-01",
+      "phase": 4,
+      "priority": "P0",
+      "area": "inboxes",
+      "source": "docs/spec/04-admin-portal.md › Inboxes",
+      "description": "Only users with the module's view permission can see records, and every staff view of a personal record is audited.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-01.knowledge",
+      "parent": "CMS-01",
+      "phase": 5,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "Scoped to Hadith entries, articles, article categories and author profiles.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "KC-01",
+      "phase": 5,
+      "priority": "P1",
+      "area": "knowledge-centre",
+      "source": "docs/spec/03-public-website.md › Knowledge Centre (orig. §6.6)",
+      "description": "No Hadith or religious article is visible anywhere (pages, search, sitemaps, API) without the approvals required by D06.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "KC-02",
+      "phase": 5,
+      "priority": "P1",
+      "area": "knowledge-centre",
+      "source": "docs/spec/03-public-website.md › Knowledge Centre (orig. §6.6)",
+      "description": "A fresh install shows the neutral Knowledge Centre placeholder, and there are zero Hadith rows after both db:seed and db:seed:demo.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "KC-03",
+      "phase": 5,
+      "priority": "P1",
+      "area": "knowledge-centre",
+      "source": "docs/spec/03-public-website.md › Knowledge Centre (orig. §6.6)",
+      "description": "The Hadith archive supports date, keyword (normalized per D09) and language filters, and shows a featured Hadith when one is set.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "KC-04",
+      "phase": 5,
+      "priority": "P1",
+      "area": "knowledge-centre",
+      "source": "docs/spec/03-public-website.md › Knowledge Centre (orig. §6.6)",
+      "description": "Articles support several authors, categories, search and attachments, and religious categories follow D06.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "KC-05",
+      "phase": 5,
+      "priority": "P1",
+      "area": "knowledge-centre",
+      "source": "docs/spec/03-public-website.md › Knowledge Centre (orig. §6.6)",
+      "description": "Arabic text renders with full diacritics in an Arabic font, inside elements marked lang=\"ar\" dir=\"rtl\", on every locale's pages.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "TR-02",
+      "phase": 5,
+      "priority": "P1",
+      "area": "multilingual-authoring",
+      "source": "docs/spec/04-admin-portal.md › Multilingual authoring and translation management (orig. §7)",
+      "description": "Dashboard counts match the database per language and content type, and link to the items.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-01.events-gallery-media",
+      "parent": "CMS-01",
+      "phase": 6,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "Scoped to events, gallery albums and items, and the media library.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "EVT-01",
+      "phase": 6,
+      "priority": "P1",
+      "area": "events",
+      "source": "docs/spec/03-public-website.md › Events (orig. §6.8)",
+      "description": "Upcoming and past are determined in Asia/Kolkata, and dates are formatted per D20.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "EVT-02",
+      "phase": 6,
+      "priority": "P1",
+      "area": "events",
+      "source": "docs/spec/03-public-website.md › Events (orig. §6.8)",
+      "description": "The calendar view is keyboard operable and lists the same events as the list view.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "EVT-03",
+      "phase": 6,
+      "priority": "P1",
+      "area": "events",
+      "source": "docs/spec/03-public-website.md › Events (orig. §6.8)",
+      "description": "An event can link a gallery album and a report, which are shown after the event.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "GAL-01",
+      "phase": 6,
+      "priority": "P1",
+      "area": "gallery",
+      "source": "docs/spec/03-public-website.md › Gallery (orig. §6.9)",
+      "description": "Albums and items render responsively with lazy loading and a keyboard-operable lightbox.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "GAL-02",
+      "phase": 6,
+      "priority": "P1",
+      "area": "gallery",
+      "source": "docs/spec/03-public-website.md › Gallery (orig. §6.9)",
+      "description": "Items involving minors can't be published without obtained consent, and withdrawing consent removes them immediately (D15).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "GAL-03",
+      "phase": 6,
+      "priority": "P1",
+      "area": "gallery",
+      "source": "docs/spec/03-public-website.md › Gallery (orig. §6.9)",
+      "description": "Images served publicly contain no EXIF or GPS metadata.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "GAL-04",
+      "phase": 6,
+      "priority": "P1",
+      "area": "gallery",
+      "source": "docs/spec/03-public-website.md › Gallery (orig. §6.9)",
+      "description": "Videos load only after the visitor clicks (D14).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "MED-03",
+      "phase": 6,
+      "priority": "P1",
+      "area": "media",
+      "source": "docs/spec/04-admin-portal.md › Media library (orig. §8.5)",
+      "description": "Deleting an asset in use is blocked and the UI lists where it is used; Replace keeps references working.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-01.donations",
+      "parent": "CMS-01",
+      "phase": 7,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "Scoped to donation campaigns, payment methods and payment claims.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DON-01",
+      "phase": 7,
+      "priority": "P2",
+      "area": "donations",
+      "source": "docs/spec/03-public-website.md › Donations and fundraising (orig. §6.10)",
+      "description": "Only published campaigns appear. Progress shows the verified amount with its date, and the bar is hidden when there is no target.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DON-02",
+      "phase": 7,
+      "priority": "P2",
+      "area": "donations",
+      "source": "docs/spec/03-public-website.md › Donations and fundraising (orig. §6.10)",
+      "description": "Only verified payment methods appear, and editing a verified method removes it from public pages immediately.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DON-03",
+      "phase": 7,
+      "priority": "P2",
+      "area": "donations",
+      "source": "docs/spec/03-public-website.md › Donations and fundraising (orig. §6.10)",
+      "description": "The UPI QR code is generated server-side from the verified VPA, and the page shows the payee name to check.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DON-04",
+      "phase": 7,
+      "priority": "P2",
+      "area": "donations",
+      "source": "docs/spec/03-public-website.md › Donations and fundraising (orig. §6.10)",
+      "description": "With no verified payment method, the page says that details will be published after verification.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DON-05",
+      "phase": 7,
+      "priority": "P2",
+      "area": "donations",
+      "source": "docs/spec/03-public-website.md › Donations and fundraising (orig. §6.10)",
+      "description": "A payment claim is stored as CLAIMED, and no acknowledgement exists until a verifier marks it VERIFIED.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUD-01",
+      "phase": 8,
+      "priority": "P0",
+      "area": "audit",
+      "source": "docs/spec/04-admin-portal.md › Audit history",
+      "description": "Every admin mutation creates an audit entry. No UI or API can edit or delete audit entries, and payloads redact secrets and mask bank account numbers.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "AUD-02",
+      "phase": 8,
+      "priority": "P0",
+      "area": "audit",
+      "source": "docs/spec/04-admin-portal.md › Audit history",
+      "description": "The audit viewer filters by actor, entity, action and date.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "CMS-01",
+      "phase": 8,
+      "priority": "P0",
+      "area": "cms",
+      "source": "docs/spec/04-admin-portal.md › CMS modules (orig. §8.3)",
+      "description": "For each module, the list (with search, filter, sort and pagination), create, edit, preview and archive work end to end, with server-side validation messages shown next to the relevant fields.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DASH-01",
+      "phase": 8,
+      "priority": "P1",
+      "area": "admin-dashboard",
+      "source": "docs/spec/04-admin-portal.md › Dashboard (orig. §8.2)",
+      "description": "Widget counts equal the database counts within the user's permissions (tested with two different roles).",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "DASH-02",
+      "phase": 8,
+      "priority": "P1",
+      "area": "admin-dashboard",
+      "source": "docs/spec/04-admin-portal.md › Dashboard (orig. §8.2)",
+      "description": "Every quick action opens a working page.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "LR-01",
+      "phase": 8,
+      "priority": "P0",
+      "area": "launch-readiness",
+      "source": "docs/spec/04-admin-portal.md › Launch Readiness",
+      "description": "/admin/launch-readiness lists everything described in D07, live from the database, each item linking to the screen where it can be fixed.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "SEO-01",
+      "phase": 8,
+      "priority": "P0",
+      "area": "search-seo",
+      "source": "docs/spec/03-public-website.md › Search and SEO (orig. §6.13)",
+      "description": "Every public page has a localized title and description, a canonical URL, hreflang alternates (including x-default) for the locales in which it is available, and Open Graph tags.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "SEO-02",
+      "phase": 8,
+      "priority": "P0",
+      "area": "search-seo",
+      "source": "docs/spec/03-public-website.md › Search and SEO (orig. §6.13)",
+      "description": "sitemap.xml lists only published, indexable URLs per locale; robots.txt disallows /admin and /api; and SITE_INDEXING=false produces noindex everywhere.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "SEO-03",
+      "phase": 8,
+      "priority": "P0",
+      "area": "search-seo",
+      "source": "docs/spec/03-public-website.md › Search and SEO (orig. §6.13)",
+      "description": "JSON-LD EducationalOrganization data includes only verified fields.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "SRCH-01",
+      "phase": 8,
+      "priority": "P0",
+      "area": "search-seo",
+      "source": "docs/spec/03-public-website.md › Search and SEO (orig. §6.13)",
+      "description": "Search returns only published content in the selected locale (D09); a draft containing a unique token never appears in results.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "FND-08",
+      "phase": 9,
+      "priority": "P0",
+      "area": "foundation",
+      "source": "docs/spec/05-security-privacy-quality.md › Foundation and operations acceptance criteria",
+      "description": "pnpm drill:restore restores the latest backup into a fresh database and its smoke tests pass.",
+      "verification": "",
+      "passes": false
+    },
+    {
+      "id": "I18N-05",
+      "phase": 9,
+      "priority": "P0",
+      "area": "i18n-rtl",
+      "source": "docs/spec/03-public-website.md › Multilingual behaviour (orig. §7)",
+      "description": "Every public template has reviewed screenshots in en, ur and ar at 390 px and 1280 px with no overflow, clipping or mis-mirroring.",
+      "verification": "",
+      "passes": false
+    }
+  ]
+}
